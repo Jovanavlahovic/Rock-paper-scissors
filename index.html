@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, paper, scissors</title>
+    <script defer src="js/index.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="score-containter">
+       <div class="game-logo">
+         <img src="./images/logo.svg" alt="game-logo">
+       </div>
+       <div class="score">
+           <div class="score-box">
+             <p>SCORE</p>
+             <p id="points">0</p>
+           </div>
+       </div>
+   </div> 
+   <div class="game-container">
+       <div class="titles">
+        <span id="left">YOU PICKED</span>
+        <span id="right">THE HOUSE PICKED</span>
+       </div>
+       <div class="choices">
+        <div class="triangle-box">
+            <img src="./images/bg-triangle.svg" alt="bg-triangle" id="triangle">
+        </div>
+        <div class="top">
+            <div class="paper">
+                <img src="./images/icon-paper.svg" alt="paper">
+            </div>
+            <div class="scissors">
+                <img src="./images/icon-scissors.svg" alt="scissors">
+            </div>
+        </div>
+        <div class="rock">
+            <img src="./images/icon-rock.svg" alt="rock">
+        </div>
+       </div>
+   </div>
+   <button id="rules">RULES</button>
+   <div id="modal">
+    <div id="modal-content">
+        <div class="text-box">
+            <span>RULES</span>
+            <p id="close">&times;</p>
+        </div>
+        <img src="./images/image-rules.svg" alt="rules">
+    </div>
+   </div>
+</body>
+</html>
