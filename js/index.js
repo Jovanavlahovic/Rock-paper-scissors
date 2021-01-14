@@ -148,6 +148,7 @@ function cpuChooses(){
 }
 
 function playAgain(){
+    //resets all classes added after game is played
     rock.classList.remove('cpuChoice');
     paper.classList.remove('cpuChoice');
     scissors.classList.remove('cpuChoice');
@@ -164,6 +165,14 @@ function playAgain(){
     let paperDivs = document.getElementsByClassName("paper");
     let rockDivs = document.getElementsByClassName("rock");
     let scissorsDivs = document.getElementsByClassName("scissors");
+    let collection = [paperDivs, rockDivs, scissorsDivs];
+
+    //removes duplicate element in case of two same choices (i.e. rock && rock)
+    collection.forEach(list => {
+      if(list.length == 2){
+        list[1].remove();
+      }
+    });
     
 }
 

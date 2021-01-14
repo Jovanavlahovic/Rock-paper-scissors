@@ -64,7 +64,7 @@ body {
   font-size: 3rem;
 }
 
-/************************** GAME ***********************/
+/************************** GAME ELEMENTS***********************/
 .game-container {
   margin-top: 3.5rem;
   margin-left: 30%;
@@ -97,6 +97,7 @@ body {
 }
 .game-container .paper, .game-container .rock, .game-container .scissors {
   cursor: pointer;
+  transition: all 0.5s ease-out;
 }
 .game-container .paper img, .game-container .rock img, .game-container .scissors img {
   width: 10em;
@@ -137,6 +138,7 @@ body {
 .game-container .titles {
   margin-bottom: 0.7rem;
   display: none;
+  top: 5%;
 }
 .game-container #left, .game-container #right {
   color: #fff;
@@ -145,7 +147,7 @@ body {
   position: absolute;
 }
 .game-container #left {
-  left: 0%;
+  left: 3%;
 }
 .game-container #right {
   right: 0%;
@@ -176,7 +178,10 @@ body {
 
 .new-game {
   display: none;
-  padding-top: 10%;
+  position: absolute;
+  width: 38%;
+  top: 30%;
+  left: 31%;
 }
 .new-game h3 {
   color: #fff;
@@ -272,6 +277,31 @@ body {
     margin-left: 20%;
     width: 60%;
   }
+  .game-container .playersChoice {
+    transform: scale(1.1);
+  }
+  .game-container .cpuChoice {
+    transform: scale(1.1);
+  }
+  .game-container .titles {
+    margin-bottom: 0;
+  }
+  .game-container #right, .game-container #left {
+    top: 10%;
+  }
+
+  .game-container.wideContainer {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .new-game h3 {
+    color: #fff;
+    font-size: 2rem;
+  }
+  .new-game button {
+    font-size: 1.5rem;
+  }
 
   .score-containter {
     width: 70%;
@@ -281,6 +311,12 @@ body {
   #modal-content {
     width: 50%;
     left: 25%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .game-container.wideContainer {
+    width: 80%;
+    margin-left: 10%;
   }
 }
 @media only screen and (max-width: 650px) {
@@ -296,6 +332,15 @@ body {
   }
   .game-container .rock img, .game-container .paper img, .game-container .scissors img {
     width: 8em;
+  }
+  .game-container .cpuChoice, .game-container .playersChoice {
+    transform: scale(1.3);
+  }
+
+  .new-game {
+    top: 80%;
+    width: 50%;
+    left: 25%;
   }
 
   .score-containter {
