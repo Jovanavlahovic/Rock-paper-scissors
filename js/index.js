@@ -177,6 +177,7 @@ function playAgain(){
     newGameBtn.style.display = 'none';
     titles.style.display = "none";
     triangleImg.style.display = "block";
+    gameContainer.classList.remove('wideContainer');
 
     let paperDivs = document.getElementsByClassName("paper");
     let rockDivs = document.getElementsByClassName("rock");

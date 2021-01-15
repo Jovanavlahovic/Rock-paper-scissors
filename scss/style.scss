@@ -160,26 +160,25 @@ body{
     }
 
     .playersChoice{
-        transform: scale(1.3);
-        position: absolute;
         left: 0%;
         top:30%;
     }
 
     .cpuChoice{
-        transform: scale(1.3);
-        position: absolute;
         right: 0%;
         top:30%;
     }
 
     .playersChoice, .cpuChoice{
+        transform: scale(1.3) rotate(360deg);
+        position: absolute;
         margin: 0;
     }
 
     .cpuChoice img:hover, .playersChoice img:hover{
         transform: none;
     }
+
 }
 
 .game-container.wideContainer {
@@ -401,4 +400,44 @@ body{
         width: 60%;
         left: 20%;
     }
+}
+
+@media only screen and (max-width: 460px){
+    .game-container{
+        width: 90%;
+        margin-left: 5%;
+
+        .rock, .paper, .scissors{
+            border-width: 0.2rem;
+
+            img{
+                padding: 1.2rem;
+                width: 7em;
+            }
+        }
+
+        .rock{
+            margin-top: 2.7rem;
+        }
+
+        .cpuChoice.rock, .playersChoice.rock{
+            margin-top: 0;
+        }
+
+        #left, #right{
+            font-size: 1.3rem;
+        }
+    }
+
+
+    .new-game{
+        h3{
+            color: #fff;
+            font-size: 1.7rem;
+        }
+        button{
+            font-size: 1.3rem;
+        }
+    }
+    
 }
