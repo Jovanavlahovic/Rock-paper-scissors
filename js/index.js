@@ -21,7 +21,7 @@ window.addEventListener("click", (e) => {
     }
 });
 
-
+//elements needed for the game
 let paper = document.getElementsByClassName('paper')[0];
 let rock = document.getElementsByClassName('rock')[0];
 let scissors = document.getElementsByClassName('scissors')[0];
@@ -29,8 +29,11 @@ let newGameBtn = document.getElementsByClassName("new-game")[0];
 let titles = document.getElementsByClassName("titles")[0];
 let triangleImg = document.getElementsByClassName("triangle-box")[0];
 let gameContainer = document.getElementsByClassName("game-container")[0];
+let winnerTitle = document.getElementById('winner');
 let score = 0;
 
+//e in parameters represents targeted element of the even
+//event fired when user clicks on paper,rock or scissors
 function playGame(choice, e){
     let cpuChoice = cpuChooses();
     titles.style.display = 'block';
@@ -45,14 +48,16 @@ function playGame(choice, e){
            scissors.classList.add("playersChoice");
            rock.classList.add("cpuChoice", "winner");
            paper.style.display = "none";
-           score = -1;
+           winnerTitle.innerHTML = "YOU LOSE!";
+           updateScore(-1);
          }
 
          if (cpuChoice == "rock" && choice == "paper") {
            rock.classList.add("cpuChoice");
            paper.classList.add("playersChoice", "winner");
            scissors.style.display = "none";
-           score = 1;
+           winnerTitle.innerHTML = "YOU WIN!";
+           updateScore(1);
          }
 
          if (cpuChoice == "rock" && choice == "rock") {
@@ -66,20 +71,23 @@ function playGame(choice, e){
            rock.classList.add("playersChoice");
            paper.style.display = "none";
            scissors.style.display = "none";
-           score = 0;
+           winnerTitle.innerHTML = "TIED!";
          }
 
          if (cpuChoice == "scissors" && choice == "paper") {
            scissors.classList.add("cpuChoice");
            paper.classList.add("playersChoice", "winner");
            rock.style.display = "none";
-           score = -1;
+           winnerTitle.innerHTML = "YOU LOSE!";
+           updateScore(-1);
          }
+
          if (cpuChoice == "scissors" && choice == "rock") {
            scissors.classList.add("cpuChoice");
            rock.classList.add("playersChoice", "winner");
            paper.style.display = "none";
-           score = 1;
+           winnerTitle.innerHTML = "YOU WIN!";
+           updateScore(1);
          }
 
          if (cpuChoice == "scissors" && choice == "scissors") {
@@ -93,21 +101,23 @@ function playGame(choice, e){
            scissors.classList.add("playersChoice");
            paper.style.display = "none";
            rock.style.display = "none";
-           score = 0;
+           winnerTitle.innerHTML = "TIED!";
          }
 
          if (cpuChoice == "paper" && choice == "rock") {
            paper.classList.add("cpuChoice", "winner");
            rock.classList.add("playersChoice");
            scissors.style.display = "none";
-           score = -1;
+           winnerTitle.innerHTML = "YOU LOSE!";
+           updateScore(-1);
          }
 
          if (cpuChoice == "paper" && choice == "scissors") {
            paper.classList.add("cpuChoice");
            scissors.classList.add("playersChoice", "winner");
            rock.style.display = "none";
-           score = 1;
+           winnerTitle.innerHTML = "YOU WIN!";
+           updateScore(1);
          }
 
          if (cpuChoice == "paper" && choice == "paper") {
@@ -122,10 +132,15 @@ function playGame(choice, e){
            paper.classList.add("playersChoice");
            rock.style.display = "none";
            scissors.style.display = "none";
-           score = 0;
+           winnerTitle.innerHTML = "TIED!";
          }
     }
-   
+}
+
+//updates score in score board
+function updateScore(point){
+  let scoreBoard = document.getElementById('points');
+  scoreBoard.innerHTML = Number(scoreBoard.innerText) + point;
 }
 
 paper.addEventListener("click", (e) => {
@@ -140,15 +155,16 @@ scissors.addEventListener("click", (e) => {
     playGame("scissors", e.currentTarget);
 });
 
-
+//chooses random move of cpu in the game
 function cpuChooses(){
     let randomChoice = Math.floor(Math.random()*3);
     let options = ['rock', 'paper', 'scissors'];
     return options[randomChoice];
 }
 
+
 function playAgain(){
-    //resets all classes added after game is played
+    //resets all classes added after the game is played
     rock.classList.remove('cpuChoice');
     paper.classList.remove('cpuChoice');
     scissors.classList.remove('cpuChoice');
@@ -179,3 +195,4 @@ function playAgain(){
 newGameBtn.addEventListener('click', () => {
     playAgain();
 })
+

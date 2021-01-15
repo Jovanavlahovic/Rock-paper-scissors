@@ -289,6 +289,9 @@ body {
   .game-container #right, .game-container #left {
     top: 10%;
   }
+  .game-container #right {
+    right: -2%;
+  }
 
   .game-container.wideContainer {
     width: 70%;
